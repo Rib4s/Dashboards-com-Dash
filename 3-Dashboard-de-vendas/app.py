@@ -1,14 +1,11 @@
 import dash
-from dash import html, dcc
-from dash.dependencies import Input, Output
-
-import pandas as pd
+import dash_bootstrap_components as dbc
 import numpy as np
- 
+import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
-import dash_bootstrap_components as dbc
-
+from dash import dcc, html
+from dash.dependencies import Input, Output
 from dash_bootstrap_templates import load_figure_template
 
 load_figure_template("minty")
@@ -29,6 +26,7 @@ app.layout = html.Div(children=[
                         dbc.Card([
                             html.H2("ASIMOV", style={"font-family": "Voltaire", "font-size": "50px"}),
                             html.Hr(),
+                            html.H5("Dashboard para análise de vendas de supermercado.", style={"font-size": "16px"}),   
 
                             html.H5("Cidades:"),
                             dcc.Checklist(df_data["City"].value_counts().index,
